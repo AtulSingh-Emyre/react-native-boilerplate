@@ -1,5 +1,5 @@
 import React from 'react';
-import NotificationScreen from '../../../screens/Notification/NotificationScreen';
+import NotificationScreen from '../../screens/Notification/NotificationScreen';
 import {RootStack, Screen} from '../RootNavigation';
 
 export const NotificationStackScreen = () => {

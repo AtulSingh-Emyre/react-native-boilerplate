@@ -4,7 +4,7 @@ import {Avatar, Drawer, Title} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 
 // import {useCustomTheme} from '../../context/theme-context';
-import {ScreenNames} from '../../utils/Navigations/RootNavigation';
+import {ScreenNames} from '../../navigation/RootNavigation';
 import {connect} from 'react-redux';
 import {RootReducerState as RootState} from '../../redux/reducers';
 import {AuthRepositry} from '../../services/AuthRepositry';
@@ -41,9 +41,6 @@ const DrawerContent: FC<IProps> = props => {
           <View style={styles.userInfoSection}>
             <View style={styles.topHeader}>
               <Avatar.Image
-                accessibilityComponentType={null}
-                accessibilityStates={null}
-                accessibilityTraits={null}
                 source={require('../../assets/No-User-Avatar.jpeg')}
                 size={65}
               />
@@ -58,11 +55,7 @@ const DrawerContent: FC<IProps> = props => {
             </View>
           </View>
 
-          <Drawer.Section
-            accessibilityComponentType={null}
-            accessibilityStates={null}
-            accessibilityTraits={null}
-            style={[styles.drawerSection]}>
+          <Drawer.Section style={[styles.drawerSection]}>
             <DrawerItem
               label="jobs"
               onPress={() => {
@@ -73,11 +66,7 @@ const DrawerContent: FC<IProps> = props => {
             />
           </Drawer.Section>
         </DrawerContentScrollView>
-        <Drawer.Section
-          accessibilityComponentType={null}
-          accessibilityStates={null}
-          accessibilityTraits={null}
-          style={[styles.bottomDrawerSection]}>
+        <Drawer.Section style={[styles.bottomDrawerSection]}>
           <DrawerItem
             label="Sign Out"
             onPress={() => {

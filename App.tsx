@@ -7,6 +7,7 @@ import {Provider as ReduxProvider} from 'react-redux';
 import {Provider as PaperProvider} from 'react-native-paper';
 import Store from './src/redux/reducers';
 // import {StyleSheet} from 'react-native';
+import AppRouter from './src/navigation/Routes';
 
 function HomeScreen({navigation}: any) {
   return (
@@ -33,15 +34,16 @@ export default function App() {
   return (
     <PaperProvider>
       <ReduxProvider store={Store}>
-        <NavigationContainer>
-          <Drawer.Navigator initialRouteName="Home">
+        {/* <NavigationContainer> */}
+          <AppRouter />
+          {/* <Drawer.Navigator initialRouteName="Home">
             <Drawer.Screen name="Home" component={HomeScreen} />
             <Drawer.Screen
               name="Notifications"
               component={NotificationsScreen}
             />
-          </Drawer.Navigator>
-        </NavigationContainer>
+          </Drawer.Navigator> */}
+        {/* </NavigationContainer> */}
       </ReduxProvider>
     </PaperProvider>
   );
