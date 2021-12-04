@@ -3,6 +3,10 @@ import * as React from 'react';
 import {Button, View} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
+import {Provider as ReduxProvider} from 'react-redux';
+import {Provider as PaperProvider} from 'react-native-paper';
+import Store from './src/redux/reducers';
+// import {StyleSheet} from 'react-native';
 
 function HomeScreen({navigation}: any) {
   return (
@@ -27,11 +31,18 @@ const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <PaperProvider>
+      <ReduxProvider store={Store}>
+        <NavigationContainer>
+          <Drawer.Navigator initialRouteName="Home">
+            <Drawer.Screen name="Home" component={HomeScreen} />
+            <Drawer.Screen
+              name="Notifications"
+              component={NotificationsScreen}
+            />
+          </Drawer.Navigator>
+        </NavigationContainer>
+      </ReduxProvider>
+    </PaperProvider>
   );
 }
