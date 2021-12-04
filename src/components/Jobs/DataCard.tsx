@@ -15,23 +15,9 @@ interface Props extends ListRenderItemInfo<any> {
 
 const DataCard = (props: Props) => {
   return (
-    <Card
-      style={styles.container}
-      accessibilityComponentType={null}
-      accessibilityStates={null}
-      accessibilityTraits={null}>
-      <Avatar.Image
-        source={{uri: props.logo}}
-        accessibilityComponentType={null}
-        accessibilityStates={null}
-        accessibilityTraits={null}
-      />
-      <Card.Title
-        accessibilityComponentType={null}
-        accessibilityStates={null}
-        accessibilityTraits={null}
-        title={props.title}
-      />
+    <Card style={styles.container}>
+      {/* <Avatar.Image source={'https://reactnative.dev/img/tiny_logo.png'} /> */}
+      <Card.Title title={props.title} />
       <Card.Content>
         <Text>{props.location}</Text>
       </Card.Content>

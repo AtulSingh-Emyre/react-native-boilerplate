@@ -1,6 +1,5 @@
 import React, {memo} from 'react';
-import {StyleSheet} from 'react-native';
-import Background from '../../components/Authentication/Background';
+import {StyleSheet, View} from 'react-native';
 import {theme} from '../../utils/theme';
 import {FAB, Portal, Searchbar} from 'react-native-paper';
 import {FlatList} from 'react-native-gesture-handler';
@@ -106,7 +105,7 @@ const JobsHomeScreen = () => {
   const onChangeSearch = (query: any) => setSearchQuery(query);
   const renderItem = ({item}: any) => <DataCard {...item} />;
   return (
-    <Background>
+    <View style={styles.screenContainer}>
       {/* <BackButton goBack={() => navigation.navigate(ScreenNames.AUTH_HOME)} /> */}
       <Searchbar
         placeholder="Search"
@@ -118,10 +117,11 @@ const JobsHomeScreen = () => {
         renderItem={renderItem}
         bounces={true}
         style={styles.container}
-        scrollEnabled={true}
+        // scrollEnabled={true}
       />
       <Portal>
         <FAB.Group
+          style={styles.FABContainer}
           visible={true}
           open={open}
           icon={'filter'}
@@ -132,7 +132,7 @@ const JobsHomeScreen = () => {
               onPress: () => console.log('Pressed star'),
             },
             {
-              icon: 'tasks',
+              icon: 'tag',
               label: 'Saved Jobs',
               onPress: () => console.log('Pressed email'),
             },
@@ -145,16 +145,20 @@ const JobsHomeScreen = () => {
           }}
         />
       </Portal>
-    </Background>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  screenContainer: {backgroundColor: 'grey', flex: 1},
   chipContainer: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  FABContainer: {
+    marginBottom: 50,
   },
   chip: {
     width: '50%',
@@ -162,7 +166,6 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     flex: 1,
-    marginBottom: 24,
   },
   row: {
     flexDirection: 'row',

@@ -1,23 +1,24 @@
 import React from 'react';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import {ScreenNames} from './RootNavigation';
-import {useTheme} from 'react-native-paper';
-import {JobsHomeStackScreen} from './routes/JobsHomeNavigation';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-const Tab = createMaterialBottomTabNavigator();
+import {ScreenNames} from './RootNavigation';
+import {JobsHomeStackScreen} from './routes/JobsHomeNavigation';
+import Icon from '../components/Icon';
+const Tab = createBottomTabNavigator();
 const MainTabScreen = () => {
-  const theme = useTheme();
   return (
     <Tab.Navigator
       initialRouteName={ScreenNames.JOBSHOME}
-      activeColor={theme.dark ? theme.colors.primary : theme.colors.surface}>
-      {/* <Tab.Screen
+      screenOptions={{headerShown: false}}>
+      <Tab.Screen
         name={ScreenNames.JOBSHOME}
         component={JobsHomeStackScreen}
         options={{
           tabBarLabel: 'Jobs',
+          tabBarIcon: () => <Icon name="briefcase" size={30} color="#900" />,
+          // tabBarIcon: 'filter',
         }}
-      /> */}
+      />
     </Tab.Navigator>
   );
 };
